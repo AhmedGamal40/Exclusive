@@ -1,16 +1,16 @@
-import React from 'react'
 import TitleNav from '../../Assets/Shared/TitleNav'
 import ProductCard from './ProductCard'
 
-function BestSelling() {
+function BestSelling({products}) {
   return (
     <div>
       <TitleNav name={"This Month"} title={'Best Selling Products'}/>
       <div className="flex flex-wrap justify-around">
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
+       {
+          products.slice(4,8).map((product) => (
+            <ProductCard key={product.id} image={product.image} price={product.price} rating={product.rating.rate} title={product.title}/>
+          ))
+        }
       </div>
     </div>
   )

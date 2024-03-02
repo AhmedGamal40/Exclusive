@@ -6,9 +6,12 @@ import { Link } from 'react-router-dom';
 import {  Menu } from '@headlessui/react'
 import { LuUser } from "react-icons/lu";
 import { BiLogOut } from "react-icons/bi";
+import { useSelector } from 'react-redux';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+    const count = useSelector((state) => state.counter.value);
+
 
   return (
     <>
@@ -50,7 +53,7 @@ function Navbar() {
               <div className="relative inline-flex items-center">
                 <Link to='/cart'>
                   <IoCartOutline className="lg:text-3xl text-2xl  lg:mr-4 mx-3  hover:text-gray-600 transition-colors duration-200 ease-in-out" />
-                  <span className="absolute top-0 left-9 lg:left-11 -translate-y-1/2 -translate-x-1/2 bg-red-600 rounded-full px-1  text-sm text-white text-center">77</span>
+                  <span className="absolute top-0 left-9 lg:left-11 -translate-y-1/2 -translate-x-1/2 bg-red-600 rounded-full px-1  text-sm text-white text-center">{count}</span>
                 </Link>
               </div > 
                 {/* Profile dropdown */}
